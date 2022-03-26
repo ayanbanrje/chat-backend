@@ -1,0 +1,25 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayanbanrje/chat-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayanbanrje/chat-backend/issues"
+  },
+  "homepage": "https://github.com/ayanbanrje/chat-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "md5": "^2.3.0",
+    "mongoose": "^6.2.8"
+  }
+}
