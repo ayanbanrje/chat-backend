@@ -10,10 +10,10 @@ module.exports = {
         });
 
         if(checkIfUserExist){
-            return res.status(200).send({
+            return res.status(401).send({
                 success : 0,
                 error : 1,
-                message : "User already exist with same name, try with different email."
+                message : "User already exist with same email, try with different email."
             })
         }
         
@@ -25,10 +25,11 @@ module.exports = {
             res.status(200).send({
                 success : 1,
                 error : 0,
-                data : newData
+                data : newData,
+                message : "Registration was successful !!"
             })
         }catch(err){
-            res.status(200).send({
+            res.status(401).send({
                 success : 0,
                 error : 1,
                 data : err,
@@ -40,7 +41,7 @@ module.exports = {
     login : async function(req,res){
 
         if(!req.body.username || !req.body.password){
-            return res.status(400).send({
+            return res.status(401).send({
                 error : 1,
                 success : 0,
                 message : "Please provide all the details"
