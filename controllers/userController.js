@@ -65,6 +65,14 @@ module.exports = {
                     name : userDetail.name
                 }
             })
+        }else{
+            res.status(402).send({
+                success :  0,
+                error : 1,
+                message : "Wrong username or password",
+                data : {
+                }
+            })
         }
 
         else{
