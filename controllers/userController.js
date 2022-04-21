@@ -40,16 +40,17 @@ module.exports = {
 
     login : async function(req,res){
 
-        if(!req.body.username || !req.body.password){
+        if(!req.body.email || !req.body.password){
             return res.status(401).send({
                 error : 1,
                 success : 0,
-                message : "Please provide all the details"
-            })
-        }
+                 message : "Please provide correct details"
+             })
+         }
 
+       
         let userDetail = await UserModel.findOne({
-            email : req.body.username,
+            email : req.body.email,
             password : md5(req.body.password)
         })
 
@@ -73,5 +74,25 @@ module.exports = {
                 }
             })
         }
-    }
+
+        else{
+            return res.status(401).send({
+                success: 0,
+                error: 1,
+                message : "Email Id or Password is wrong"
+
+            })
+
+        }
+
+     },
+    usersList:async function(req,res){
+        var user = await UserModel.find();
+        res.send({
+          success:1,
+          error:0,
+          data:user,
+          message:"User list fetched succesfully"
+        });
+      }
 }

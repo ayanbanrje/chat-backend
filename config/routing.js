@@ -10,8 +10,9 @@ module.exports = function(app) {
     app
        .post("/user/saveuser",userController.saveUser)
        .post("/user/login",userController.login)
-       .get('*', function(req, res){
+       .get( "/user/list",userController.usersList)
+       /*.get('*', function(req, res){
 		   res.status(404).send("Sorry can't find that!")
-		});
-
+		})*/
+        
 };
